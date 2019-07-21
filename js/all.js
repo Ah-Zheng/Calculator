@@ -83,9 +83,9 @@ $('.result').click(function (e) {
         cache = res;
         formula += `=${res}`;
         updateView();
-        formula = '';
-        cache = '0';
     }
+    formula = '';
+    cache = '0';
 });
 
 // 畫面更新
