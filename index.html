@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- <p><a href="https://www.desmos.com/scientific" target="_blank">參考網路上面的計算機</a></p> -->
+
+    <div class="com">
+        <table>
+            <tr>
+                <td colspan="4"><input class="txt formula" type="text" maxlength="10" disabled></td>
+            </tr>
+            <tr>
+                <td colspan="4"><input class="txt cache" type="text" maxlength="10" disabled></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input class="btn_ac btn_click" type="button" value="AC"></td>
+                <td colspan="2"><input class="btn_del btn_click" type="button" value="DEL"></td>
+            </tr>
+            <tr>
+                <td><input class="btn" type="button" value="7"></td>
+                <td><input class="btn" type="button" value="8"></td>
+                <td><input class="btn" type="button" value="9"></td>
+                <td><input class="sign" type="button" value="/"></td>
+            </tr>
+            <tr>
+                <td><input class="btn" type="button" value="4"></td>
+                <td><input class="btn" type="button" value="5"></td>
+                <td><input class="btn" type="button" value="6"></td>
+                <td><input class="sign" type="button" value="*"></td>
+            </tr>
+            <tr>
+                <td><input class="btn" type="button" value="1"></td>
+                <td><input class="btn" type="button" value="2"></td>
+                <td><input class="btn" type="button" value="3"></td>
+                <td><input class="sign" type="button" value="-"></td>
+            </tr>
+            <tr>
+                <td><input class="btn" type="button" value="."></td>
+                <td><input class="btn" type="button" value="0"></td>
+                <td><input class="result" type="button" value="="></td>
+                <td><input class="sign" type="button" value="+"></td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/all.js"></script>
+</body>
+
+</html>
