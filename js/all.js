@@ -9,6 +9,7 @@ $(document).on('click', '.btn', function (e) {
     e.preventDefault();
     let num = $(this).val();
     let formulaLast = formula.substr(-1);
+    let re = /.{1}/;
     if (formulaLast == '+' || formulaLast == '-' || formulaLast == '*' || formulaLast == '/') {
         cache = '0';
     }
@@ -16,15 +17,21 @@ $(document).on('click', '.btn', function (e) {
         if (num == '.') {
             cache += num;
             formula += cache;
-        } else if (num != '0') {
+        } else {
             cache = '';
             cache += num;
             formula += num;
         }
     } else {
-        cache += num;
-        formula += num;
+        if (num == '.' && cache.indexOf('.') == -1) {
+            cache += num;
+            formula += num;
+        } else if (num != '.') {
+            cache += num;
+            formula += num;
+        }
     }
+    console.log(cache);
     cacheText.val(cache);
 });
 
@@ -58,7 +65,8 @@ $('.btn_del').click(function (e) {
         // 如果不是的話就將值的最後一位字元刪除
         cache = cache.substr(0, cache.length - 1);
         formula = formula.substr(0, formula.length - 1);
-        console.log(formula);
+        console.log('formula' + formula);
+        console.log('cache' + cache);
     }
     cacheText.val(cache);
 });
