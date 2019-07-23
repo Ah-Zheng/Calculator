@@ -2,6 +2,7 @@ const formulaText = $('.formula');
 const cacheText = $('.cache');
 let formula = '';
 let cache = '0';
+let reSign = /^[+\-\*\/]$/;
 updateView();
 
 // 數字及小數點按紐
@@ -9,8 +10,7 @@ $(document).on('click', '.btn', function (e) {
     e.preventDefault();
     let num = $(this).val();
     let formulaLast = formula.substr(-1);
-    let re = /.{1}/;
-    if (formulaLast == '+' || formulaLast == '-' || formulaLast == '*' || formulaLast == '/') {
+    if (reSign.test(formulaLast)) {
         cache = '0';
     }
     if (cache == '0') {
@@ -41,7 +41,7 @@ $(document).on('click', '.sign', function (e) {
     let sign = $(this).val();
     if (cache != 0) {
         let formulaLast = formula.substr(-1);
-        if (formulaLast == '+' || formulaLast == '-' || formulaLast == '*' || formulaLast == '/') {
+        if (reSign.test(formulaLast)) {
             formula = formula.replace(formulaLast, sign);
         } else {
             formula += sign;
@@ -83,7 +83,7 @@ $('.btn_ac').click(function (e) {
 $('.result').click(function (e) {
     e.preventDefault();
     let formulaLast = formula.substr(-1);
-    if (formulaLast == '+' || formulaLast == '-' || formulaLast == '*' || formulaLast == '/') {
+    if (reSign.test(formulaLast)) {
         formula = formula.substr(0, formula.length - 1);
     }
     let res = `${eval(formula)}`;
